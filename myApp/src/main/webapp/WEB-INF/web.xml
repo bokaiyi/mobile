@@ -11,7 +11,7 @@
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
             <!--映射的包名，用于搜索处理类-->
-            <param-value>com.myApp.net.push.Service</param-value>
+            <param-value>com.myApp.net.push.service</param-value>
         </init-param>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
