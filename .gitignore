@@ -25,3 +25,4 @@ hs_err_pid*
 BackEnd/.DS_Store/
 BackEnd/.idea/
 BackEnd/.build/
+myApp/.build/
