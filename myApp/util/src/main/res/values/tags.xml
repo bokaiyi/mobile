@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    recycler的tag-->
     <item name="recycler_holder" type="id"/>
+    <item name="portrait_default" type="drawable"/>
 </resources>

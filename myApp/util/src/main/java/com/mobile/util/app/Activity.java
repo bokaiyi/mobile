@@ -1,10 +1,10 @@
 package com.mobile.util.app;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import butterknife.Unbinder;
  * 本项目中所有activity的基类，加了返回处理判断
  */
 public class Activity extends AppCompatActivity {
-    public int layoutId;
     protected Unbinder unbinder;
+    protected int layoutId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -70,11 +70,11 @@ public class Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // 如果有fragment拦截了返回，return
-        List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
-        if (fragmentList.size() > 0) {
-            for (Fragment fragment : fragmentList) {
-                if (fragment instanceof com.mobile.util.app.Fragment
-                        && !((com.mobile.util.app.Fragment) fragment).canBack()) {
+        @SuppressLint("RestrictedApi")
+        List<android.support.v4.app.Fragment> fragments = getSupportFragmentManager().getFragments();
+        if (fragments.size() > 0) {
+            for (android.support.v4.app.Fragment fragment : fragments) {
+                if(fragment instanceof Fragment && !((com.mobile.util.app.Fragment) fragment).canBack()){
                     return;
                 }
             }
