@@ -9,6 +9,7 @@
 
 <!--导航栏-->
     <android.support.design.widget.AppBarLayout
+        android:background="@color/light_blue_600"
         android:id="@+id/main_appbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionBarWithStatusBarSize">
@@ -17,13 +18,18 @@
         <FrameLayout
             android:layout_marginTop="@dimen/statusBarSize"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/len_10"
+            android:paddingRight="@dimen/len_10">
 <!--            搜索-->
            <net.qiujuer.genius.ui.widget.ImageView
+               android:padding="@dimen/len_10"
                android:layout_width="@dimen/len_40"
                android:layout_height="@dimen/len_40"
                android:layout_margin="@dimen/len_4"
-               android:src="@drawable/ic_search">
+               android:src="@drawable/ic_search"
+               android:clickable="true"
+               android:focusable="true">
            </net.qiujuer.genius.ui.widget.ImageView>
 <!--            导航栏中心放标题-->
             <net.qiujuer.genius.ui.widget.TextView
@@ -31,7 +37,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/app_name">
+                android:text="FreeChat"
+                android:textColor="@color/white"
+                android:textSize="@dimen/len_32">
             </net.qiujuer.genius.ui.widget.TextView>
 <!--            头像-->
             <com.mobile.util.widget.PortraitView
@@ -39,7 +47,9 @@
                 android:layout_height="@dimen/len_40"
                 android:layout_margin="@dimen/len_4"
                 android:layout_gravity="end|center_vertical"
-                android:src="@drawable/portrait">
+                android:src="@drawable/portrait"
+                android:clickable="true"
+                android:focusable="true">
             </com.mobile.util.widget.PortraitView>
         </FrameLayout>
     </android.support.design.widget.AppBarLayout>
@@ -49,18 +59,24 @@
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/len_56"
+        android:layout_marginBottom="@dimen/len_60"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
     </FrameLayout>
 
     <!--    浮动按钮-->
     <net.qiujuer.genius.ui.widget.FloatActionButton
         android:id="@+id/main_float"
+        android:tint="@color/white"
+        android:padding="@dimen/len_10"
+        app:gBackgroundColor="@color/light_blue_200"
+        android:src="@drawable/ic_contact_add"
         android:layout_width="@dimen/len_44"
         android:layout_height="@dimen/len_44"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/len_16"
-        android:layout_marginBottom="@dimen/len_72">
+        android:layout_marginBottom="@dimen/len_72"
+        android:clickable="true"
+        android:focusable="true">
     </net.qiujuer.genius.ui.widget.FloatActionButton>
 
     <!--    底部-->
@@ -68,7 +84,7 @@
         android:id="@+id/main_bottom"
         android:background="@color/grey_100"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/len_56"
+        android:layout_height="@dimen/len_60"
         android:layout_gravity="end|bottom"/>
 
 

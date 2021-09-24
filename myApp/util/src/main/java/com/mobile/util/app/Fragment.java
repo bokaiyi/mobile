@@ -54,7 +54,7 @@ public class Fragment extends android.support.v4.app.Fragment {
         return true;
     }
 
-    // 获取界面资源id，必须复写
+    // 获取界面资源id，必须复写！！
     protected int getContentLayoutId() {
         return -1;
     }

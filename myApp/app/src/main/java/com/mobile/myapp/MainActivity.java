@@ -4,7 +4,6 @@ package com.mobile.myapp;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -20,16 +19,16 @@ import butterknife.BindView;
  */
 public class MainActivity extends Activity {
     @BindView(R.id.main_appbar)
-    View mLayAppbar;
+    View appBar;
 
     @BindView(R.id.main_content)
-    FrameLayout mContainer;
+    FrameLayout content;
 
     @BindView(R.id.main_bottom)
-    BottomNavigationView mNavigation;
+    BottomNavigationView bottomNavigationView;
 
     @BindView(R.id.main_float)
-    FloatActionButton mAction;
+    FloatActionButton floatActionButton;
 
 
     /**

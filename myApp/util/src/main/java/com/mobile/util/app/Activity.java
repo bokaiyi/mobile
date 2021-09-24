@@ -44,7 +44,7 @@ public class Activity extends AppCompatActivity {
         return true;
     }
 
-    // 获取界面资源id，必须复写
+    // 获取界面资源id，必须复写！！
     protected int getContentLayoutId() {
         return -1;
     }
