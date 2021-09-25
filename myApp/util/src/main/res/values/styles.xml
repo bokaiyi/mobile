@@ -1,5 +1,6 @@
 <resources>
-   <style name="AppTheme.Main" parent="Theme.AppCompat.Light.NoActionBar">
+
+    <style name="AppTheme.Main" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="toolbarTitleColor">@color/white</item>
         <item name="toolbarMenuIconColor">@color/white</item>
         <item name="colorControlHighlight">@color/textSecond</item>
