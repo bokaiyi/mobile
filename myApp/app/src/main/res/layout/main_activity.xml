@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +8,7 @@
     tools:context="com.mobile.myapp.MainActivity">
 
 <!--导航栏-->
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/main_appbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/actionBarWithStatusBarSize"
@@ -59,7 +59,7 @@
                 tools:ignore="RtlHardcoded">
             </com.mobile.util.widget.PortraitView>
         </FrameLayout>
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 <!--    内容-->
     <FrameLayout
@@ -67,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/len_60"
-        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
     </FrameLayout>
 
     <!--    浮动按钮，添加联系人-->
@@ -85,7 +85,7 @@
         android:focusable="true" />
 
     <!--    底部导航栏-->
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/main_bottom"
         android:background="@color/grey_100"
         android:layout_width="match_parent"
@@ -96,4 +96,4 @@
         app:itemTextColor="@color/navigation_text"/>
 
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

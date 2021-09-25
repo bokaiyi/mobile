@@ -19,11 +19,10 @@ task clean(type: Delete) {
 
 ext{
     geniusVersion = '2.0.0'
-    glideVersion = '3.7.0'
+    glideVersion = '3.8.0'
     circleimageviewVersion = '2.1.0'
     ucropVersion = "2.2.0-native"
     easyPMVersion = "0.3.0"
     ossVersion = '2.3.0'
-    supportVersion = '25.3.1'
-    butterknifeVersion = '8.5.1'
+    butterknifeVersion = '10.2.3'
 }

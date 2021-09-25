@@ -10,3 +10,5 @@ rootProject.name = "myApp"
 include ':app'
 include ':util'
 include ':lang'
+include ':imageSelector'
+include ':image'

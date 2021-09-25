@@ -2,27 +2,32 @@ package com.mobile.myapp;
 
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mobile.myapp.fragments.main_page.ContactsFragment;
 import com.mobile.myapp.fragments.main_page.GroupsFragment;
 import com.mobile.myapp.fragments.main_page.HomeFragment;
 import com.mobile.util.app.Activity;
+import com.yongchun.library.view.ImageSelectorActivity;
 
 import net.qiujuer.genius.ui.widget.FloatActionButton;
-import net.qiujuer.genius.ui.widget.TextView;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -31,7 +36,7 @@ import butterknife.OnClick;
 /**
  * MainActivity，继承我们自己写的util里的activity
  */
-public class MainActivity extends Activity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends Activity implements BottomNavigationView.OnNavigationItemSelectedListener{
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.main_appbar)
     View appBar;
@@ -48,9 +53,6 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     @BindView(R.id.main_float)
     FloatActionButton floatActionButton;
 
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.title)
-    TextView title;
 
     protected HomeFragment homeFragment = new HomeFragment();
     protected ContactsFragment contactsFragment = new ContactsFragment();
@@ -58,9 +60,17 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     // 避免一直增加fragments
     private int count_frags = 0;
 
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
     @Override
     protected void initialWidget() {
         super.initialWidget();
+
 
         // 导航栏背景图
         Glide.with(this).load(R.drawable.background)
@@ -73,16 +83,101 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
 
         // 设置底部导航栏回调
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-    }
 
-    /**
-     * MainActivity 显示的入口
-     *
-     * @param context 上下文
-     */
-    public static void show(Context context) {
-        context.startActivity(new Intent(context, MainActivity.class));
+        // TODO: 模拟器camera调不起来，后面真机试试
+        floatActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Matisse.from(MainActivity.this)
+//                        .choose(MimeType.ofImage(), false)
+//                        .countable(true)
+//                        .capture(true)
+//                        .captureStrategy(
+//                                new CaptureStrategy(true, "com.zhihu.matisse.sample.fileprovider", "test"))
+//                        .maxSelectable(9)
+//                        .addFilter(new GifSizeFilter(320, 320, 5 * Filter.K * Filter.K))
+//                        .gridExpectedSize(
+//                                getResources().getDimensionPixelSize(R.dimen.len_128))
+//                        .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+//                        .thumbnailScale(0.85f)
+//                        .imageEngine(new GlideEngine())
+//                        .setOnSelectedListener((uriList, pathList) -> {
+//                            Log.e("onSelected", "onSelected: pathList=" + pathList);
+//                        })
+//                        .showSingleMediaType(true)
+//                        .originalEnable(true)
+//                        .maxOriginalSize(10)
+//                        .autoHideToolbarOnSingleTap(true)
+////                        .setOnCheckedListener(isChecked -> {
+////                            Log.e("isChecked", "onCheck: isChecked=" + isChecked);
+////                        })
+//                        .forResult(23);
+                ImageSelectorActivity.start(MainActivity.this, 5, 1,
+                        true,true,true);
+            }
+        });
+//
     }
+//
+//    private UriAdapter mAdapter;
+    // TODO：这里改一下结果
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == 23 && resultCode == RESULT_OK) {
+//            mAdapter.setData(Matisse.obtainResult(data), Matisse.obtainPathResult(data));
+//            Log.e("OnActivityResult ", String.valueOf(Matisse.obtainOriginalState(data)));
+//        }
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == ImageSelectorActivity.REQUEST_IMAGE) {
+            ArrayList<String> images = (ArrayList<String>) data.getSerializableExtra(ImageSelectorActivity.REQUEST_OUTPUT);
+            // do something
+        }
+    }
+//
+//    private static class UriAdapter extends RecyclerView.Adapter<UriAdapter.UriViewHolder> {
+//
+//        private List<Uri> mUris;
+//        private List<String> mPaths;
+//
+//        void setData(List<Uri> uris, List<String> paths) {
+//            mUris = uris;
+//            mPaths = paths;
+//            notifyDataSetChanged();
+//        }
+//
+//        @Override
+//        public UriViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//            return new UriViewHolder(
+//                    LayoutInflater.from(parent.getContext()).inflate(R.layout.uri_item, parent, false));
+//        }
+//
+//        @Override
+//        public void onBindViewHolder(UriViewHolder holder, int position) {
+//            holder.mUri.setText(mUris.get(position).toString());
+//            holder.mPath.setText(mPaths.get(position));
+//
+//            holder.mUri.setAlpha(position % 2 == 0 ? 1.0f : 0.54f);
+//            holder.mPath.setAlpha(position % 2 == 0 ? 1.0f : 0.54f);
+//        }
+//
+//        @Override
+//        public int getItemCount() {
+//            return mUris == null ? 0 : mUris.size();
+//        }
+//
+//        static class UriViewHolder extends RecyclerView.ViewHolder {
+//
+//            private TextView mUri;
+//            private TextView mPath;
+//
+//            UriViewHolder(View contentView) {
+//                super(contentView);
+//                mUri = (TextView) contentView.findViewById(R.id.uri);
+//                mPath = (TextView) contentView.findViewById(R.id.path);
+//            }
+//        }
+
 
     @Override
     protected int getContentLayoutId() {
@@ -149,7 +244,6 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
                         .replace(R.id.main_content, homeFragment)
                         .commit();
             }
-            title.setText("Online");
             hideFloat();
         } else if (item.getItemId() == R.id.navigation_contacts) {
             if (count_frags == 0) {
@@ -162,7 +256,6 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
                         .replace(R.id.main_content, contactsFragment)
                         .commit();
             }
-            title.setText("Contacts");
             showFloat();
         } else if (item.getItemId() == R.id.navigation_groups) {
             if (count_frags == 0) {
@@ -175,14 +268,13 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
                         .replace(R.id.main_content, groupsFragment)
                         .commit();
             }
-            title.setText("Groups");
             showFloat();
         } else {
             return false;
         }
 
 
-        if(getSupportFragmentManager().getFragments() != null){
+        if (getSupportFragmentManager().getFragments() != null) {
             Log.e("Tag", String.valueOf(getSupportFragmentManager().getFragments().size()));
         }
         return true;
@@ -192,7 +284,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     /**
      * 只有在groups和contacts页面才会显示float
      */
-    public void showFloat(){
+    public void showFloat() {
         floatActionButton.animate().rotation(360)
                 .translationY(-180)
                 .setDuration(300)
@@ -202,11 +294,12 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     /**
      * 别的页面隐藏float
      */
-    public void hideFloat(){
+    public void hideFloat() {
         floatActionButton.animate().rotation(-360)
                 .translationY(180)
                 .setDuration(300)
                 .start();
     }
+
 
 }

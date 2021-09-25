@@ -3,10 +3,11 @@ package com.mobile.util.app;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
+
+import androidx.annotation.FractionRes;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
@@ -77,9 +78,9 @@ public class Activity extends AppCompatActivity {
     public void onBackPressed() {
         // 如果有fragment拦截了返回，return
         @SuppressLint("RestrictedApi")
-        List<android.support.v4.app.Fragment> fragments = getSupportFragmentManager().getFragments();
+        List<androidx.fragment.app.Fragment> fragments = getSupportFragmentManager().getFragments();
         if (fragments.size() > 0) {
-            for (android.support.v4.app.Fragment fragment : fragments) {
+            for (androidx.fragment.app.Fragment fragment : fragments) {
                 if(fragment instanceof Fragment && !((com.mobile.util.app.Fragment) fragment).canBack()){
                     return;
                 }
