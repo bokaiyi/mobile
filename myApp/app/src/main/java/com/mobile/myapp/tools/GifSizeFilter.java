@@ -13,6 +13,9 @@ import com.zhihu.matisse.internal.utils.PhotoMetadataUtils;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 辅助类，不用动
+ */
 public class GifSizeFilter extends Filter {
 
     private int mMinWidth;

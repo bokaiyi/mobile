@@ -5,6 +5,9 @@ import android.util.AttributeSet;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+/**
+ * 头像的view类
+ */
 public class PortraitView extends CircleImageView {
     public PortraitView(Context context) {
         super(context);

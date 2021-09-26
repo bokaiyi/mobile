@@ -1,4 +1,4 @@
-package com.mobile.myapp.utils;
+package com.mobile.util.utils;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
@@ -14,6 +14,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * 辅助类，可以在这里加文件的读写方法
+ */
 public class FileUtils {
     /**
      * Uri转File的方法

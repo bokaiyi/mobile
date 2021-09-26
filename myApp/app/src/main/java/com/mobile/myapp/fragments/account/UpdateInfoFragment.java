@@ -7,15 +7,19 @@ import static com.mobile.myapp.tools.ImgSelector.TAILOR_REQUEST_CODE;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import com.mobile.myapp.R;
 import com.mobile.myapp.tools.ImgSelector;
 import com.mobile.util.app.Fragment;
+import com.mobile.util.helper.UploadHelper;
+import com.mobile.util.utils.FileUtils;
 import com.mobile.util.widget.PortraitView;
 
 import java.io.File;
@@ -51,6 +55,13 @@ public class UpdateInfoFragment extends Fragment {
         imgSelector.onImgRequestClick(mPortrait);
     }
 
+    /**
+     * 所有回调结果返回的逻辑在这里写
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -71,19 +82,27 @@ public class UpdateInfoFragment extends Fragment {
                 Log.e(ImgSelector.TAG, "相册回调");
                 if (data != null && data.getData() != null) {
                     Log.e(ImgSelector.TAG, "相册回调成功");
-                    imgSelector.openCrop(data.getData()); // 剪裁
+                    // TODO: test上传到服务器
+                    String path = FileUtils.uriToFile(data.getData(), getContext()).getAbsolutePath();
+                    try {
+                        UploadHelper.uploadImage(path, getContext());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    mPortrait.setImageURI(data.getData()); // 设置头像
+//                    imgSelector.openCrop(data.getData()); // 剪裁
                 }
             } else {
                 Log.e(ImgSelector.TAG, "图片剪裁回调");
                 Uri uri = Uri.fromFile(imgSelector.getImgFile());
                 mPortrait.setImageURI(uri); // 设置头像
 
-                // 上传到服务器
+                // TODO: 上传到服务器
                 File file = imgSelector.getImgFile();
-
             }
         } else {
-            Toast.makeText(getContext(), "Something wrong, please check log", Toast.LENGTH_SHORT).show();
+            // TODO: 后面如果有这个方法的逻辑写在这里
+            Toast.makeText(getContext(), "Canceled", Toast.LENGTH_SHORT).show();
         }
     }
 }

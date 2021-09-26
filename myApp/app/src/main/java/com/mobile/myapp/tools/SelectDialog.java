@@ -24,13 +24,8 @@ import com.mobile.myapp.R;
 import java.util.List;
 
 /**
- * 选择对话框
- *
- * Author: nanchen
- * Email: liushilin520@foxmail.com
- * Date: 2017-03-22  11:38
+ * 辅助类，不用动
  */
-
 public class SelectDialog extends Dialog implements OnClickListener,OnItemClickListener {
     private SelectDialogListener mListener;
     private Activity mActivity;

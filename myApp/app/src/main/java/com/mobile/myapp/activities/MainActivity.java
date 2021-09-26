@@ -1,6 +1,8 @@
 package com.mobile.myapp.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -61,6 +63,15 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     // 避免一直增加fragments
     private int count_frags = 0;
 
+    /**
+     * MainActivity 显示的入口
+     *
+     * @param context 上下文
+     */
+    public static void show(Context context) {
+        context.startActivity(new Intent(context, MainActivity.class));
+    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,7 +82,6 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     @Override
     protected void initialWidget() {
         super.initialWidget();
-
 
         // 导航栏背景图
         Glide.with(this).load(R.drawable.background)
@@ -117,16 +127,16 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.main_float)
     void onClickFloat() {
-        UserInfoActivity.show(this);
 
     }
 
     /**
-     * 点击头像监听事件
+     * 点击头像监听事件 TODO: 改，测试用的
      */
     @SuppressLint("NonConstantResourceId")
     @OnClick(R.id.main_portrait)
     void onClickPortrait() {
+        UserInfoActivity.show(this);
     }
 
     /**
