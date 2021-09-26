@@ -74,4 +74,5 @@ public class Fragment extends androidx.fragment.app.Fragment {
     public boolean canBack() {
         return true;
     }
+
 }
