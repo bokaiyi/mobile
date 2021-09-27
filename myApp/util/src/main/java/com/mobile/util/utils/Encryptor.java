@@ -6,11 +6,11 @@ import org.jasypt.util.text.BasicTextEncryptor;
  * 辅助类，不用动
  */
 public class Encryptor {
-    private BasicTextEncryptor encryptor;
+    private final BasicTextEncryptor encryptor;
 
-    public Encryptor(){
+    public Encryptor(String pwd){
         encryptor = new BasicTextEncryptor();
-        encryptor.setPassword("123456");
+        encryptor.setPassword(pwd);
     }
 
     public BasicTextEncryptor getEncryptor(){

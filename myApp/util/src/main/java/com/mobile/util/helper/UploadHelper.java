@@ -22,12 +22,14 @@ import java.util.Date;
 
 /**
  * 上传文件到oss，部署在香港了
+ * 加密方法：ENCRYPTOR.getEncryptor().encrypt(str);
+ * 解密方法: ENCRYPTOR.getEncryptor().decrypt(str);
  */
 public class UploadHelper {
     private static final String TAG = "UploadHelper";
     private static final String ENDPOINT = "http://oss-cn-hongkong.aliyuncs.com";
     private static final String BUCKET_NAME = "mobile-oss1";
-    private static final Encryptor ENCRYPTOR = new Encryptor();
+    public static final Encryptor ENCRYPTOR = new Encryptor("123456");
 
 
     /**
