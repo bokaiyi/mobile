@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    recycler的tag-->
+    <item name="recycler_holder" type="id"/>
+<<<<<<< HEAD
+=======
+    <item name="toolbar" type="id"/>
+>>>>>>> 16b0d4c (fix bugs-Final version)
+    <item name="portrait_default" type="drawable"/>
+</resources>

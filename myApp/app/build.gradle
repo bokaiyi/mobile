@@ -1,0 +1,95 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.mobile.myapp"
+        minSdk 21
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [
+                //从 3.1.2.0 版本开始，APPID 占位符从 GETUI_APP_ID 切换为 GETUI_APPID
+                //后续所有产品的 APPID 均统一配置为 GETUI_APPID 占位符
+<<<<<<< HEAD
+                GETUI_APPID       : "kIGP7uXHCI8JPMpv1IQd27",
+                GETUI_APPKEY      : "08n9PzfOYs5fMvuDxdEH72",
+                GETUI_APPSECRET   : "fKBZCuzLkY57FCjRnRULS1",
+=======
+                GETUI_APPID       : "jfyQK0VIybAAXvUf4TAHF5",
+                GETUI_APPKEY      : "nDD6CHp8W98Rz8uUyZCLGA",
+                GETUI_APPSECRET   : "mUrkjvs1Kj7iHloLdBaoYA",
+>>>>>>> 16b0d4c (fix bugs-Final version)
+                PACKAGE_NAME      : "com.mobile.myApp"
+        ]
+
+        ndk {
+            // 添加项目所需 CPU 类型的最小集
+            abiFilters "armeabi", "armeabi-v7a", "x86_64", "x86"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    aaptOptions.cruncherEnabled = false;
+    aaptOptions.useNewCruncher = false;
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation project(':factory')
+    implementation project(':util')
+    implementation "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
+    implementation "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
+<<<<<<< HEAD
+=======
+    implementation "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
+>>>>>>> 16b0d4c (fix bugs-Final version)
+
+    implementation"de.hdodenhof:circleimageview:$rootProject.ext.circleimageviewVersion"
+    implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+
+    implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation "com.zhihu.android:matisse:0.5.3-beta3"
+    implementation 'com.commit451:PhotoView:1.2.4'
+    implementation 'com.isseiaoki:simplecropview:1.0.13'
+    implementation 'com.yongchun:com.yongchun.imageselector:1.1.0'
+
+    implementation 'com.getui:gtsdk:3.2.3.0'  //个推SDK
+    implementation 'com.getui:gtc:3.1.4.0'  //个推核心组件
+
+    annotationProcessor "com.github.raizlabs.dbflow:dbflow-processor:${rootProject.ext.dbflowVersion}"
+    // use kapt for kotlin apt
+    implementation "com.github.raizlabs.dbflow:dbflow-core:${rootProject.ext.dbflowVersion}"
+    implementation "com.github.raizlabs.dbflow:dbflow:${rootProject.ext.dbflowVersion}"
+    implementation "com.aliyun.dpa:oss-android-sdk:$rootProject.ext.ossVersion"
+
+}

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mobile.myApp">
+
+    <!--    权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+<<<<<<< HEAD
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m"
+        android:name="com.mobile.util.app.Application">
+=======
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+
+    <application
+        android:name="com.mobile.factory.Application"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_chat"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+
+        <meta-data
+            android:name="PUSH_APPID"
+            android:value="jfyQK0VIybAAXvUf4TAHF5" />
+
+        <service
+            android:name=".tools.PushMsgReceiver" />
+
+        <!-- 请根据您当前自定义的 PushService 名称路径进行配置-->
+        <service
+            android:name="com.mobile.util.app.DemoPushService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice"/>
+
+>>>>>>> 16b0d4c (fix bugs-Final version)
+        <activity
+            android:name=".activities.OpenAppActivity"
+            android:theme="@style/AppTheme.Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+<<<<<<< HEAD
+        <activity android:name=".activities.UserActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.AccountActivity" />
+=======
+        <activity
+            android:name=".activities.UserActivity"
+            android:theme="@style/AppTheme.Main" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:theme="@style/AppTheme.Main" />
+        <activity
+            android:name=".activities.AccountActivity"
+            android:theme="@style/AppTheme.Main" />
+        <activity
+            android:name=".activities.ChatActivity"
+            android:theme="@style/AppTheme.Main" />
+        <activity
+            android:name=".activities.UserInfoActivity"
+            android:theme="@style/AppTheme.Main" />
+        <activity
+            android:name=".activities.SearchActivity"
+            android:theme="@style/AppTheme.Main"
+            android:label="Search"/>
+>>>>>>> 16b0d4c (fix bugs-Final version)
+
+        <!--        图片选择器框架，不用管-->
+        <activity android:name="com.yongchun.library.view.ImageSelectorActivity" />
+        <activity android:name="com.yongchun.library.view.ImagePreviewActivity" />
+        <activity android:name="com.yongchun.library.view.ImageCropActivity" />
+
+        <!--        兼容安卓7闪退问题-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+<<<<<<< HEAD
+            android:authorities="com.example.camera.test"
+=======
+            android:authorities="${applicationId}.fileprovider"
+>>>>>>> 16b0d4c (fix bugs-Final version)
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+    </application>
+
+</manifest>

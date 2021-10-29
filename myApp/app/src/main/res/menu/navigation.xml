@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navigation_home"
+        android:title="@string/home_menu"
+        android:icon="@drawable/ic_home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/navigation_contacts"
+        android:title="@string/contacts_menu"
+        android:icon="@drawable/ic_contacts"
+        app:showAsAction="ifRoom" />
+<<<<<<< HEAD
+    <item
+        android:id="@+id/navigation_groups"
+        android:title="@string/groups_menu"
+        android:icon="@drawable/ic_groups"
+        app:showAsAction="ifRoom" />
+=======
+<!--    <item-->
+<!--        android:id="@+id/navigation_groups"-->
+<!--        android:title="@string/groups_menu"-->
+<!--        android:icon="@drawable/ic_groups"-->
+<!--        app:showAsAction="ifRoom" />-->
+>>>>>>> 16b0d4c (fix bugs-Final version)
+</menu>

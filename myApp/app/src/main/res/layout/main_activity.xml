@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.mobile.myApp.activities.MainActivity">
+
+<!--导航栏-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/main_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarWithStatusBarSize"
+        android:fitsSystemWindows="true" >
+
+<!--        title布局-->
+        <FrameLayout
+            android:layout_marginTop="@dimen/statusBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/len_10"
+            android:paddingRight="@dimen/len_10">
+            <!--            搜索-->
+<<<<<<< HEAD
+            <net.qiujuer.genius.ui.widget.ImageView
+=======
+            <ImageView
+>>>>>>> 16b0d4c (fix bugs-Final version)
+                android:id="@+id/main_search"
+                android:layout_gravity="end|center_vertical"
+                android:padding="@dimen/len_10"
+                android:layout_width="@dimen/len_40"
+                android:layout_height="@dimen/len_40"
+                android:layout_margin="@dimen/len_4"
+                android:src="@drawable/ic_search"
+                android:clickable="true"
+                android:focusable="true"
+<<<<<<< HEAD
+                tools:ignore="RtlHardcoded">
+            </net.qiujuer.genius.ui.widget.ImageView>
+<!--            标题-->
+            <net.qiujuer.genius.ui.widget.TextView
+                android:id="@+id/title"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/freechat"
+                android:textSize="@dimen/font_24"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textAppearance="@color/white"/>
+=======
+                tools:ignore="RtlHardcoded"
+                android:background="@color/g_default_base_transparent">
+            </ImageView>
+<!--&lt;!&ndash;            标题&ndash;&gt;-->
+<!--            <net.qiujuer.genius.ui.widget.TextView-->
+<!--                android:id="@+id/title"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:text="@string/freechat"-->
+<!--                android:textSize="@dimen/font_24"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:gravity="center"-->
+<!--                android:textAppearance="@color/white"/>-->
+
+>>>>>>> 16b0d4c (fix bugs-Final version)
+<!--            头像，设置了自动剪切-->
+            <com.mobile.util.widget.PortraitView
+                android:id="@+id/main_portrait"
+                android:padding="@dimen/len_4"
+                android:layout_width="@dimen/len_40"
+                android:layout_height="@dimen/len_40"
+                android:layout_margin="@dimen/len_6"
+                android:layout_gravity="left"
+                android:src="@drawable/portrait"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                tools:ignore="RtlHardcoded">
+            </com.mobile.util.widget.PortraitView>
+<<<<<<< HEAD
+=======
+
+            <com.mobile.util.widget.PortraitView
+                android:id="@+id/logout"
+                android:layout_height="@dimen/len_40"
+                android:layout_width="@dimen/len_40"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/len_60"
+                android:padding="@dimen/len_4"
+                android:src="@drawable/logout"
+                android:textSize="@dimen/font_24"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                tools:ignore="RtlHardcoded"/>
+>>>>>>> 16b0d4c (fix bugs-Final version)
+        </FrameLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+<!--    内容-->
+    <FrameLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/len_60"
+<<<<<<< HEAD
+=======
+        android:background="@drawable/white"
+>>>>>>> 16b0d4c (fix bugs-Final version)
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+    </FrameLayout>
+
+    <!--    浮动按钮，添加联系人-->
+    <net.qiujuer.genius.ui.widget.FloatActionButton
+        android:id="@+id/main_float"
+        android:padding="@dimen/len_14"
+        app:gBackgroundColor="@color/white"
+        android:src="@drawable/ic_contact_add"
+        android:layout_width="@dimen/len_44"
+        android:layout_height="@dimen/len_44"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="@dimen/len_16"
+        android:layout_marginBottom="@dimen/len_72"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <!--    底部导航栏-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_bottom"
+        android:background="@color/grey_100"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/len_60"
+        android:layout_gravity="end|bottom"
+        app:menu="@menu/navigation"
+        app:itemIconTint="@color/navigation_text"
+        app:itemTextColor="@color/navigation_text"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

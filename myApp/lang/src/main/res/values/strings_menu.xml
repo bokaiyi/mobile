@@ -1,0 +1,5 @@
+<resources>
+    <string name="home_menu">Home</string>
+    <string name="contacts_menu">Contacts</string>
+    <string name="groups_menu">Groups</string>
+</resources>

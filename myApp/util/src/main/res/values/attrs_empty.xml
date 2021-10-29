@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="EmptyView">
+        <attr name="EmptyText" format="integer" />
+        <attr name="ErrorText" format="integer" />
+        <attr name="LoadingText" format="integer" />
+        <attr name="EmptyDrawable" format="integer" />
+        <attr name="ErrorDrawable" format="integer" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,37 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="utf-8"?>
+=======
+>>>>>>> 16b0d4c (fix bugs-Final version)
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+<<<<<<< HEAD
+    tools:context=".fragments.main_page.ContactsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="contacts"
+        />
+=======
+    tools:context="com.mobile.myApp.fragments.main_page.ContactsFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/len_12"
+        android:paddingTop="@dimen/len_12"
+        android:visibility="gone" />
+
+    <com.mobile.util.widget.EmptyView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+>>>>>>> 16b0d4c (fix bugs-Final version)
+
+</FrameLayout>
